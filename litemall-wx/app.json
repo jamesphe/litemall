@@ -6,6 +6,7 @@
     "pages/hotGoods/hotGoods",
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
+    "pages/ucenter/invoice/invoice",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/footprint/footprint",
@@ -44,7 +45,7 @@
   ],
   "window": {
     "navigationBarBackgroundColor": "#FFFFFF",
-    "navigationBarTitleText": "litemall小程序商城",
+    "navigationBarTitleText": "爱意生活",
     "enablePullDownRefresh": false,
     "navigationBarTextStyle": "black",
     "backgroundColor": "#FFFFFF",
@@ -63,10 +64,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/catalog/catalog",
+        "pagePath": "pages/topic/topic",
         "iconPath": "static/images/category.png",
         "selectedIconPath": "static/images/category@selected.png",
-        "text": "分类"
+        "text": "生活"
       },
       {
         "pagePath": "pages/cart/cart",

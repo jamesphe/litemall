@@ -7,7 +7,10 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -16,12 +19,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"nodeModules": true
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
-	"appid": "wxa5b486c6b918ecfb",
+	"appid": "wxf9c163cd0c3fa5f3",
 	"projectname": "litemall-wx",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
@@ -309,6 +311,13 @@
 					"name": "售后详情",
 					"pathName": "pages/ucenter/aftersaleDetail/aftersaleDetail",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发票",
+					"pathName": "pages/ucenter/invoice/invoice",
+					"query": "",
 					"scene": null
 				}
 			]

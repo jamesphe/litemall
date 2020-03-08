@@ -24,6 +24,7 @@ Page({
     checkedSpecText: '规格数量选择',
     tmpSpecText: '请选择规格数量',
     checkedSpecPrice: 0,
+    checkedSpecPic:'',
     openAttr: false,
     openShare: false,
     collect: false,
@@ -165,6 +166,7 @@ Page({
           userHasCollect: res.data.userHasCollect,
           shareImage: res.data.shareImage,
           checkedSpecPrice: res.data.info.retailPrice,
+          checkedSpecPic: res.data.info.picUrl,
           groupon: res.data.groupon,
           canShare: res.data.share,
         });
@@ -375,11 +377,13 @@ Page({
       if (checkedProduct.number > 0) {
         this.setData({
           checkedSpecPrice: checkedProduct.price,
+          checkedSpecPic: checkedProduct.url,
           soldout: false
         });
       } else {
         this.setData({
           checkedSpecPrice: this.data.goods.retailPrice,
+          checkedSpecPic: this.data.goods.picUrl,
           soldout: true
         });
       }
@@ -388,6 +392,7 @@ Page({
       this.setData({
         checkedSpecText: '规格数量选择',
         checkedSpecPrice: this.data.goods.retailPrice,
+        checkedSpecPic: this.data.goods.picUrl,
         soldout: false
       });
     }

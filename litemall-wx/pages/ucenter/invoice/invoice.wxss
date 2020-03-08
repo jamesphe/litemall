@@ -1,0 +1,135 @@
+page {
+  height: 100%;
+  background: #f4f4f4;
+}
+
+.add-invoice .invoice-form {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.add-invoice .tip-info {
+  font-size:20rpx;
+  color:#999;
+}
+
+.add-invoice .input-box {
+  width: 100%;
+  background-color: #f7f7f7;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.add-invoice .invoice-type-box {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  height: 150rpx;
+  padding-left: 31.25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-right: 31.25rpx;
+}
+
+.add-invoice .invoice-type-box .invoice-type {
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.add-invoice .invoice-type-box .invoice-type-name {
+  background-color: red;
+  border-radius: 8rpx;
+  color: white;
+}
+
+.add-invoice .invoice-title-box {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  height: auto;
+  padding-left: 31.25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-right: 31.25rpx;
+}
+
+.add-invoice .invoice-title-box .invoice-title {
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.add-invoice .invoice-title-box .title-type {
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+}
+
+.add-invoice .invoice-title-box .title-type-name {
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+  width: 80rpx;
+  text-align: center;
+  height: 35rpx;
+}
+
+.add-invoice .invoice-receiver-box {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  height: auto;
+  padding-left: 31.25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding-right: 31.25rpx;
+}
+
+.add-invoice .invoice-receiver-box .invoice-receiver {
+  width: 100%;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 20rpx;
+}
+
+
+.add-invoice .btns {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  display: flex;
+  height: 100rpx;
+  width: 100%;
+}
+
+.add-invoice .cannel, .add-invoice .save {
+  flex: 1;
+  height: 80rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+}
+
+.add-invoice .cannel {
+  background: #333;
+}
+
+.add-invoice .save {
+  background: #b4282d;
+}
+
+.bg-mask {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}

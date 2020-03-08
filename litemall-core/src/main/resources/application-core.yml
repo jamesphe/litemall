@@ -1,11 +1,11 @@
 litemall:
   # 开发者应该设置成自己的wx相关信息
   wx:
-    app-id: wxa5b486c6b918ecfb
-    app-secret: e04004829d4c383b4db7769d88dfbca1
-    mch-id: 111111
-    mch-key: xxxxxx
-    notify-url: http://www.example.com/wx/order/pay-notify
+    app-id: wxf9c163cd0c3fa5f3
+    app-secret: 08a27241c153dde938ac539afe2aa7d1
+    mch-id: 1424644002
+    mch-key: 8DC0552A882C46CBB0A630158FC1322D
+    notify-url: http://api.tech.ielife.com.cn/wx/order/pay-notify
     # 商户证书文件路径
     # 请参考“商户证书”一节 https://pay.weixin.qq.com/wiki/doc/api/wxa/wxa_api.php?chapter=4_3
     key-path: xxxxx
@@ -49,8 +49,8 @@ litemall:
   # 快鸟物流查询配置
   express:
     enable: false
-    appId: "XXXXXXXXX"
-    appKey: "XXXXXXXXXXXXXXXXXXXXXXXXX"
+    appId: "1621042"
+    appKey: "a5547310-897c-45fb-9345-d647721d3bfc"
     vendors:
     - code: "ZTO"
       name: "中通快递"
@@ -82,7 +82,7 @@ litemall:
   # 对象存储配置
   storage:
     # 当前工作的对象存储模式，分别是local、aliyun、tencent、qiniu
-    active: local
+    active: ftp
     # 本地对象存储配置信息
     local:
       storagePath: storage
@@ -107,3 +107,7 @@ litemall:
       accessKey: 111111
       secretKey: xxxxxx
       bucketName: litemall
+    # 自定义ftp对象存储配置信息
+    ftp:
+      upload: http://upload.tech.ielife.com.cn/
+      address: http://img.tech.ielife.com.cn/

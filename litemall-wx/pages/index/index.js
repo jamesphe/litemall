@@ -21,8 +21,8 @@ Page({
 
   onShareAppMessage: function() {
     return {
-      title: 'litemall小程序商场',
-      desc: '开源微信小程序商城',
+      title: '爱意生活',
+      desc: '为生活添加一点爱意',
       path: '/pages/index/index'
     }
   },

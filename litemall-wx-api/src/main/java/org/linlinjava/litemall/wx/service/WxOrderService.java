@@ -9,6 +9,7 @@ import com.github.binarywang.wxpay.bean.result.BaseWxPayResult;
 import com.github.binarywang.wxpay.constant.WxPayConstants;
 import com.github.binarywang.wxpay.exception.WxPayException;
 import com.github.binarywang.wxpay.service.WxPayService;
+import com.sun.codemodel.internal.JAssignment;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -195,6 +196,14 @@ public class WxOrderService {
         orderVo.put("consignee", order.getConsignee());
         orderVo.put("mobile", order.getMobile());
         orderVo.put("address", order.getAddress());
+        orderVo.put("invoiceType",order.getInvoiceType());
+        orderVo.put("invoiceTitle",order.getInvoiceTitle());
+        orderVo.put("invoiceTaxno",order.getInvoiceTaxno());
+        orderVo.put("invoiceAddress",order.getInvoiceAddress());
+        orderVo.put("invoicePhone",order.getInvoicePhone());
+        orderVo.put("invoiceBank",order.getInvoiceBank());
+        orderVo.put("invoiceAccount",order.getInvoiceAccount());
+        orderVo.put("invoiceEmail",order.getInvoiceEmail());
         orderVo.put("goodsPrice", order.getGoodsPrice());
         orderVo.put("couponPrice", order.getCouponPrice());
         orderVo.put("freightPrice", order.getFreightPrice());
@@ -259,6 +268,9 @@ public class WxOrderService {
         String message = JacksonUtil.parseString(body, "message");
         Integer grouponRulesId = JacksonUtil.parseInteger(body, "grouponRulesId");
         Integer grouponLinkId = JacksonUtil.parseInteger(body, "grouponLinkId");
+        Short invoiceType = JacksonUtil.parseShort(body,"invoiceType");
+        if(invoiceType==null) invoiceType = 0;
+
 
         //如果是团购项目,验证活动是否有效
         if (grouponRulesId != null && grouponRulesId > 0) {
@@ -337,7 +349,7 @@ public class WxOrderService {
 
         // 获取可用的优惠券信息
         // 使用优惠券减免的金额
-        BigDecimal couponPrice = new BigDecimal(0);
+          BigDecimal couponPrice = new BigDecimal(0);
         // 如果couponId=0则没有优惠券，couponId=-1则不使用优惠券
         if (couponId != 0 && couponId != -1) {
             LitemallCoupon coupon = couponVerifyService.checkCoupon(userId, couponId, userCouponId, checkedGoodsPrice);
@@ -380,6 +392,16 @@ public class WxOrderService {
         order.setIntegralPrice(integralPrice);
         order.setOrderPrice(orderTotalPrice);
         order.setActualPrice(actualPrice);
+        order.setInvoiceType(invoiceType);
+        if ( invoiceType > 0){
+            order.setInvoiceTitle(JacksonUtil.parseString(body, "invoiceTitle"));
+            order.setInvoiceEmail(JacksonUtil.parseString(body,"invoiceEmail"));
+            order.setInvoiceTaxno(JacksonUtil.parseString(body,"invoiceTaxno"));
+            order.setInvoiceAddress(JacksonUtil.parseString(body,"invoiceAddress"));
+            order.setInvoicePhone(JacksonUtil.parseString(body,"invoicePhone"));
+            order.setInvoiceBank(JacksonUtil.parseString(body,"invoiceBank"));
+            order.setInvoiceAccount(JacksonUtil.parseString(body,"invoiceAccount"));
+        }
 
         // 有团购
         if (grouponRules != null) {

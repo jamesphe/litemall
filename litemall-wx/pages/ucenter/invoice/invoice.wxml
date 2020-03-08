@@ -1,0 +1,40 @@
+<view class="add-invoice">
+  <view class="invoice-form">
+    <view class="invoice-type-box">
+      <text class="invoice-type">发票类型</text>
+      <view class="invoice-type-name">电子普通发票</view>
+      <view class="tip-info">我司依法开具发票，请你按照税法规定使用发票</view>
+    </view>
+
+    <view class="invoice-title-box">
+      <text class="invoice-title">发票抬头</text>
+      <view class="title-type">
+        <view style="{{personTitleStyle}}" class="title-type-name" bindtap="setPersonTitle">个人</view>
+        <view style="{{companyTitleStyle}}" class="title-type-name" bindtap="setCompanyTitle">公司</view>
+      </view>
+      <input class="input-box" bindinput="bindinputInvoiceTitle"  placeholder="可填写姓名"></input>
+      <view style="width:100%" hidden="{{!companyInvoice}}" >
+        <input class="input-box" bindinput="bindinputInvoiceTaxno" placeholder="请填写纳税人识别号"></input>
+        <input class="input-box" bindinput="bindinputInvoiceAddress" placeholder="注册地址（选填）"></input>
+        <input class="input-box" bindinput="bindinputInvoiceBank" placeholder="开户银行（选填）"></input>
+        <input class="input-box" bindinput="bindinputInvoiceAccount" placeholder="银行账号（选填）"></input>
+        <input class="input-box" bindinput="bindinputInvoicePhone" placeholder="电话（选填）"></input>
+      </view>
+    </view>
+
+    <view class="invoice-receiver-box">
+      <text class="invoice-receiver">收票人信息</text>
+      <input class="input-box" bindinput="bindinputInvoiceEmail" placeholder="请填写接受电子发票的电子邮箱"></input>
+    </view>
+
+    <view class="invoice-content-box">
+
+    </view>
+  </view>
+
+  <view class="btns">
+    <button class="cannel" bindtap="cancelInvoice">取消</button>
+    <button class="save" bindtap="confirmInvoice">确定</button>
+  </view>
+</view>
+<view class="bg-mask" bindtap="cancelSelectRegion" wx:if="{{openSelectRegion}}"></view>

@@ -20,7 +20,16 @@ Page({
     userCouponId: 0,
     message: '',
     grouponLinkId: 0, //参与的团购
-    grouponRulesId: 0 //团购规则ID
+    grouponRulesId: 0, //团购规则ID
+    invoiceType: 0, //发票类型：0是不开票，1是电子普通发票，2是增值税专用发票
+    invoiceTitle: '',
+    invoiceTaxno: '',
+    invoiceAddress: '',
+    invoicePhone: '',
+    invoiceBank: '',
+    invoiceAccount: '',
+    invoiceEmail: '',
+    isCompanyInvoice: false
   },
   onLoad: function(options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -65,6 +74,9 @@ Page({
     wx.navigateTo({
       url: '/pages/ucenter/couponSelect/couponSelect',
     })
+  },
+  selectInvoice() {
+    wx.navigateTo({"url": '/pages/ucenter/invoice/invoice'})
   },
   bindMessageInput: function(e) {
     this.setData({
@@ -135,15 +147,30 @@ Page({
       util.showErrorToast('请选择收货地址');
       return false;
     }
-    util.request(api.OrderSubmit, {
+    let orderInfo = {
       cartId: this.data.cartId,
       addressId: this.data.addressId,
       couponId: this.data.couponId,
       userCouponId: this.data.userCouponId,
       message: this.data.message,
       grouponRulesId: this.data.grouponRulesId,
-      grouponLinkId: this.data.grouponLinkId
-    }, 'POST').then(res => {
+      grouponLinkId: this.data.grouponLinkId,
+      invoiceType: this.data.invoiceType,
+    }
+
+    if (orderInfo.invoiceType > 0){
+      orderInfo.invoiceTitle = this.data.invoiceTitle
+      orderInfo.invoiceEmail = this.data.invoiceEmail
+      if (orderInfo.invoiceType===2 || this.data.isCompanyInvoice){
+        orderInfo.invoiceTaxno = this.data.invoiceTaxno
+        orderInfo.invoiceAddress = this.data.invoiceAddress
+        orderInfo.invoicePhone = this.data.invoicePhone
+        orderInfo.invoiceBank = this.data.invoiceBank
+        orderInfo.invoiceAccount = this.data.invoiceAccount
+      }
+    }
+
+    util.request(api.OrderSubmit, orderInfo, 'POST').then(res => {
       if (res.errno === 0) {
 
         // 下单成功，重置couponId

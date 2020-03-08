@@ -9,6 +9,7 @@ public class StorageProperties {
     private Aliyun aliyun;
     private Tencent tencent;
     private Qiniu qiniu;
+    private Ftp ftp;
 
     public String getActive() {
         return active;
@@ -48,6 +49,14 @@ public class StorageProperties {
 
     public void setQiniu(Qiniu qiniu) {
         this.qiniu = qiniu;
+    }
+
+    public Ftp getFtp() {
+        return ftp;
+    }
+
+    public void setFtp(Ftp ftp) {
+        this.ftp = ftp;
     }
 
     public static class Local {
@@ -185,6 +194,27 @@ public class StorageProperties {
 
         public void setBucketName(String bucketName) {
             this.bucketName = bucketName;
+        }
+    }
+
+    public static class Ftp {
+        private String address;
+        private String upload;
+
+        public String getAddress() {
+            return address;
+        }
+
+        public void setAddress(String address) {
+            this.address = address;
+        }
+
+        public String getUpload() {
+            return upload;
+        }
+
+        public void setUpload(String upload) {
+            this.upload = upload;
         }
     }
 }

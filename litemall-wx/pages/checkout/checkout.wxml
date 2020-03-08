@@ -18,7 +18,23 @@
         还没有收货地址，去添加
       </view>
       <view class="r">
-        <van-icon name="arrow" />      
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <view class="goods-items">
+    <view class="item" wx:for="{{checkedGoodsList}}" wx:key="id">
+      <view class="img">
+        <image src="{{item.picUrl}}"></image>
+      </view>
+      <view class="info">
+        <view class="t">
+          <text class="name">{{item.goodsName}}</text>
+          <text class="number">x{{item.number}}</text>
+        </view>
+        <view class="m">{{item.specifications}}</view>
+        <view class="b">￥{{item.price}}</view>
       </view>
     </view>
   </view>
@@ -36,9 +52,21 @@
       <view class="l" wx:else>
         <text class="name">优惠券</text>
         <text class="txt">-￥{{couponPrice}}元</text>
-      </view>      
+      </view>
       <view class="r">
-        <van-icon name="arrow" />      
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <view class="invoice-box">
+    <view class="invoice-item"  bindtap="selectInvoice">
+      <view class="l">
+        <text class="name">发票信息</text>
+        <text >{{invoiceTitle}}</text>
+      </view>
+      <view class="r">
+        <van-icon name="arrow" />
       </view>
     </view>
   </view>
@@ -70,22 +98,6 @@
       </view>
       <view class="r">
         <text class="txt">-￥{{couponPrice}}元</text>
-      </view>
-    </view>
-  </view>
-
-  <view class="goods-items">
-    <view class="item" wx:for="{{checkedGoodsList}}" wx:key="id">
-      <view class="img">
-        <image src="{{item.picUrl}}"></image>
-      </view>
-      <view class="info">
-        <view class="t">
-          <text class="name">{{item.goodsName}}</text>
-          <text class="number">x{{item.number}}</text>
-        </view>
-        <view class="m">{{item.specifications}}</view>
-        <view class="b">￥{{item.price}}</view>
       </view>
     </view>
   </view>

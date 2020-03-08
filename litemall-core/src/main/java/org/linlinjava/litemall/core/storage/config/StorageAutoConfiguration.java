@@ -22,6 +22,8 @@ public class StorageAutoConfiguration {
         storageService.setActive(active);
         if (active.equals("local")) {
             storageService.setStorage(localStorage());
+        } else if (active.equals("ftp")) {
+            storageService.setStorage(ftpStorage());
         } else if (active.equals("aliyun")) {
             storageService.setStorage(aliyunStorage());
         } else if (active.equals("tencent")) {
@@ -75,5 +77,14 @@ public class StorageAutoConfiguration {
         qiniuStorage.setBucketName(qiniu.getBucketName());
         qiniuStorage.setEndpoint(qiniu.getEndpoint());
         return qiniuStorage;
+    }
+
+    @Bean
+    public FtpStorage ftpStorage() {
+        FtpStorage ftpStorage = new FtpStorage();
+        StorageProperties.Ftp ftp = this.properties.getFtp();
+        ftpStorage.setAddress(ftp.getAddress());
+        ftpStorage.setUpload(ftp.getUpload());
+        return ftpStorage;
     }
 }

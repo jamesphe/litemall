@@ -329,14 +329,12 @@
   margin-top: 12rpx;
   margin-right: 12rpx;
   float: left;
-  width: 240rpx;
-  height: 240rpx;
+  width: 100%;
 }
 
 .a-popular .b .right {
   float: left;
-  height: 264rpx;
-  width: 456rpx;
+  width: 100%;
   display: flex;
   flex-flow: row nowrap;
 }
@@ -347,20 +345,18 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  height: 264rpx;
-  width: 456rpx;
+  width: 100%;
+  margin-top: 10rpx;
 }
 
 .a-popular .b .name {
-  width: 456rpx;
   display: block;
-  color: #333;
+  color: #303133;
   line-height: 50rpx;
   font-size: 30rpx;
 }
 
 .a-popular .b .desc {
-  width: 456rpx;
   display: block;
   color: #999;
   line-height: 50rpx;
@@ -368,7 +364,6 @@
 }
 
 .a-popular .b .price {
-  width: 456rpx;
   display: block;
   color: #ab956d;
   line-height: 50rpx;
@@ -376,21 +371,21 @@
 }
 
 .a-topic .b {
-  height: 533rpx;
+  /*height: 533rpx;*/
   width: 750rpx;
   padding: 0 0 48rpx 0;
 }
 
 .a-topic .b .list {
-  height: 533rpx;
+  /*height: 533rpx;*/
   width: 750rpx;
   white-space: nowrap;
 }
 
 .a-topic .b .item {
-  display: inline-block;
+  display: block;
   height: 533rpx;
-  width: 680.5rpx;
+  width: 750rpx;
   margin-left: 30rpx;
   overflow: hidden;
 }
@@ -422,7 +417,7 @@
   height: 30rpx;
   color: #999;
   font-size: 24rpx;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
 }

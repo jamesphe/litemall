@@ -12,7 +12,7 @@
   <view class="share-pop-box" hidden="{{!openShare}}">
     <view class="share-pop">
       <view class="close" bindtap="closeShare">
-        <van-icon class="icon" name="cross" />      
+        <van-icon class="icon" name="cross" />
       </view>
       <view class='share-info'>
         <button class="sharebtn" open-type="share" wx:if="{{!isGroupon}}">
@@ -136,7 +136,7 @@
 <view class="attr-pop-box" hidden="{{!openAttr}}">
   <view class="attr-pop">
     <view class="close" bindtap="closeAttr">
-      <van-icon  class="icon" name="cross" />      
+      <van-icon  class="icon" name="cross" />
     </view>
     <view class="img-info">
       <image class="img" src="{{goods.picUrl}}"></image>
